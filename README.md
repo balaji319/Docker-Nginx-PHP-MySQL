@@ -1,57 +1,59 @@
-# Credits
-Based on the repository of https://github.com/likol/docker-php7-fpm
 
-# Introduction
-Dockerfile to build a Web server , based PHP7-FPM and Nginx .
+Credit
+----------- 
+https://github.com/andreisusanu/docker-nginx-php7
 
-# TL;DR
 
-* Clone repo
+nginx-php7
+==========
+Build image
+-----------
 
-  `git clone https://github.com/ZionDevelopers/docker-centos7-php7.git`
+```bash
+git clone https://github.com/andreal01/Docker-Nginx-PHP-MySQL.git
+cd Docker-Nginx-PHP-MySQL
 
-* Build docker image
+```
 
-  ```bash
-  cd docker-centos7-php7
-  make build
-  ```
+if you want to use antoher branch (ex. use Php7.0)
+-------------
+```bash
+git fetch
+git checkout Docker-Nginx-PHP7.0-MYSQL5.6
+```
+note: please install make with :
 
-* Quick start container
+```bash
+sudo apt-get install make
+```
+Run container
+-------------
+```bash
+sudo make run
+```
 
-  `make run`
-  
-* Test php -v
+Check Version PHP
+-------------
+```bash
+sudo make test
+```
 
-  `make test`
 
-* Other Help
+Run bash on container (for debug)
+-------------
+```bash
+sudo make bash
+```
 
-  `make`
 
-* * *
+Test container
+--------------
+```bash
+http://localhost:8080/
+```
 
-# Version
-
-  Current Version:
-
-  - PHP: latest Nightly Build.
-
-  - Nginx: stable 1.8.0.
-
-# Quick Start
-
-  launch the image using the docker command line,
-
-  `docker run --name php7 -p 8080:80 -p 8022:22 -v $HOME/html:/srv/www/localhost/public_html -d juliocoliveira/centos7-nginx-php7`
-
-# SSH
-
-  If you want login container,
-  the default username and password:
-
-  - username: `root`
-
-  - password: `docker.io`
-
-  `ssh -p 8022 root@localhost`
+Remove container
+--------------
+```bash
+sudo make clear
+```

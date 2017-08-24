@@ -10,26 +10,17 @@ help:
 	@echo "   4. make bash               - exec bash on container"
 	@echo "   5. make clear              - Remove alive container"
 
-build:
-	@echo "Starting build Docker image..."
-	@docker build --tag=$${USER}/php7 .
-
 run:
-	@echo "Start Container Use default setting (listen web on 8080 , ssh on 8022)"
-	@docker run -d \
-	--name $${USER}-php7 \
-	-p 8080:80 \
-	-p 8022:22 \
-	$${USER}/php7
-
+	@echo "Start Container Use default setting (listen web on 8080)"
+	@docker-compose up -d
 test:
 	@echo "Run \"php -v\" on container..."
-	@docker exec $${USER}-php7 php -v
+	@docker exec dockernginxphp_web_1 php -v
 
 bash:
 	@echo "Run bash on container..."
-	@docker exec -it $${USER}-php7 bash
+	@docker exec -u root -it dockernginxphp_web_1 bash
 
 clear:
 	@echo "Remove container..."
-	@docker rm -f $${USER}-php7
+	@docker rm -f dockernginxphp_web_1

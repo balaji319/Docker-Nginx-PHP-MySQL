@@ -15,12 +15,12 @@ run:
 	@docker-compose up -d
 test:
 	@echo "Run \"php -v\" on container..."
-	@docker exec dockernginxphp_web_1 php -v
+	@docker exec docker-nginx-php-mysql_web_1 php -v
 
 bash:
 	@echo "Run bash on container..."
-	@docker exec -u root -it dockernginxphp_web_1 bash
+	@docker exec -u root -it docker-nginx-php-mysql_web_1 bash
 
 clear:
 	@echo "Remove container..."
-	@docker rm -f dockernginxphp_web_1
+	@docker rm -f docker-nginx-php-mysql_web_1

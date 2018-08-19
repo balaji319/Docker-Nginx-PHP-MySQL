@@ -34,3 +34,5 @@ networks:
       config:
         - subnet: 172.16.99.0/24
 
+volumes:
+  mysql-data:

@@ -10,12 +10,8 @@ help:
 	@echo "   4. make bash               - exec bash on container"
 	@echo "   5. make clear              - Remove alive container"
 
-build:
-	@echo "Starting build Docker image..."
-	@docker build --tag=andreal/nginx-php7 .
-
 run:
-	@echo "Start Container Use default setting (listen web on 80)"
+	@echo "Start Container Use default setting (listen web on 8080)"
 	@docker-compose up -d
 test:
 	@echo "Run \"php -v\" on container..."

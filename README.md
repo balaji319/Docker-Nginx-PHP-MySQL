@@ -15,11 +15,11 @@ cd Docker-Nginx-PHP-MySQL
 
 ```
 
-if you want to use antoher branch (ex. use Php7.0)
+if you want to use antoher branch (ex. use Php5.6)
 -------------
 ```bash
 git fetch
-git checkout Docker-Nginx-PHP7.0-MYSQL5.6
+git checkout Docker-Nginx-PHP5.6-MYSQL5.6
 ```
 note: please install make with :
 

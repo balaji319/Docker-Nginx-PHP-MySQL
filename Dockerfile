@@ -15,13 +15,13 @@ RUN apt-get update && \
     apt-get -y --force-yes --no-install-recommends install \
     supervisor \
     nginx \
-    php7.0-fpm php7.0-cli php7.0-common php7.0-curl php7.0-gd php7.0-intl php7.0-json php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-opcache php7.0-pgsql php7.0-soap php7.0-sqlite3 php7.0-xml php7.0-xmlrpc php7.0-xsl php7.0-zip
+    php5.6-fpm php5.6-cli php5.6-common php5.6-curl php5.6-gd php5.6-intl php5.6-json php5.6-mbstring php5.6-mcrypt php5.6-mysql php5.6-opcache php5.6-pgsql php5.6-soap php5.6-sqlite3 php5.6-xml php5.6-xmlrpc php5.6-xsl php5.6-zip
 
 # configure NGINX as non-daemon
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 # configure php-fpm as non-daemon
-RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.0/fpm/php-fpm.conf
+RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/5.6/fpm/php-fpm.conf
 
 # clear apt cache and remove unnecessary packages
 RUN apt-get autoclean && apt-get -y autoremove
@@ -44,7 +44,7 @@ RUN cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
 # copy local defualt config file for NGINX
 COPY config/nginx/default /etc/nginx/sites-available/default
 
-# php7.0-fpm will not start if this directory does not exist
+# php5.6-fpm will not start if this directory does not exist
 RUN mkdir /run/php
 
 # NGINX ports

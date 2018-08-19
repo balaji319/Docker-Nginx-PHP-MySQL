@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: andreal-nginx-php7
+    image: andreal-nginx-php5.6
     build: .
     restart: always
     volumes:
@@ -33,4 +33,6 @@ networks:
       driver: default
       config:
         - subnet: 172.16.99.0/24
-
+        
+volumes:
+  mysql-data:
